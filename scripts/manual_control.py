@@ -39,6 +39,11 @@ Use ARROWS or WASD keys for control.
 
 from __future__ import print_function
 import sys
+from ultralytics import YOLO
+from pathlib import Path 
+import cv2
+import numpy as np
+
 sys.argv = ['']
 
 # ==============================================================================
@@ -713,6 +718,9 @@ class CameraManager(object):
 
 
 def game_loop(args):
+    base_path= Path(__file__).resolve()
+    model_path= base_path.parent.parent / "model" / "yolov8n.pt"
+    model= YOLO (str(model_path))
     pygame.init()
     pygame.font.init()
     world = None
@@ -736,6 +744,14 @@ def game_loop(args):
                 return
             world.tick(clock)
             world.render(display)
+            frame = pygame.surfarray.array3d(display)
+            frame = np.transpose(frame, (1, 0, 2))
+            frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            results = model(frame)
+            annotated_frame=results [0].plot()
+            cv2.imshow("YOLO Detection",annotated_frame)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
             pygame.display.flip()
 
     finally:

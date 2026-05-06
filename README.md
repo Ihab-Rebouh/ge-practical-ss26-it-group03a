@@ -6,8 +6,8 @@
 - **Lab name:** [Lab name]
 - **Date:** [DD.MM.YYYY]
 - **Group Members:**  
-  - [Name 1]  
-  - [Name 2]  
+  - [Rebouh ihab]  
+  - [william sekyere adusei]  
   - [Name 3]
   - [Name 4]
   - [Name 5]
