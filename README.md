@@ -8,10 +8,8 @@
 - **Group Members:**  
   - [Rebouh ihab]  
   - [william sekyere adusei]  
-  - [Name 3]
-  - [Name 4]
-  - [Name 5]
-- **Instructors:** [Names of the instructors]
+    
+-
 
 ---
 
